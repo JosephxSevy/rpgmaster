@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'dnd.nathancoats.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY', 'lakjshdfioau7rfaskldfiluy'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -145,6 +145,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+        //Cartalyst\Sentry\SentryServiceProvider::class,
+
     ],
 
     /*
@@ -192,6 +195,9 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        'Moloquent' => Jenssegers\Mongodb\Eloquent\Model::class,
+        //'Sentry'    => Cartalyst\Sentry\Facades\Laravel\Sentry::class,
 
     ],
 

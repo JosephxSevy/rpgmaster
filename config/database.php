@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -83,6 +83,18 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'charset'  => 'utf8',
             'prefix'   => '',
+        ],
+
+        'mongodb' =>[
+            'driver'   => 'mongodb',
+            'host'     =>  env('DB_MONGO_HOST', '127.0.0.1'),
+            'port'     => 27017,
+            'username' => '',
+            'password' => '',
+            'database' => 'd&d',
+            'options' => [
+                'db' => 'admin'
+            ]
         ],
 
     ],

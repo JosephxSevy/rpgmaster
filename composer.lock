@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b573953a8f7ba1dd8120c4d9df5a97fe",
-    "content-hash": "c84e9b75d8adbe6fa2d6e038c20a10af",
+    "hash": "c40707dace98d38477ff064fe3ee0634",
+    "content-hash": "3eb0e7da425606221099432013cfa457",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1948,26 +1948,26 @@
     "packages-dev": [
         {
             "name": "cartalyst/sentry",
-            "version": "v2.1.6",
+            "version": "dev-feature/laravel-5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cartalyst/sentry.git",
-                "reference": "fc70d46ad77aae599ac1f6f1571b4517d0783fc8"
+                "reference": "092192e969520bb287b402fbe77ab070d4267910"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/fc70d46ad77aae599ac1f6f1571b4517d0783fc8",
-                "reference": "fc70d46ad77aae599ac1f6f1571b4517d0783fc8",
+                "url": "https://api.github.com/repos/cartalyst/sentry/zipball/092192e969520bb287b402fbe77ab070d4267910",
+                "reference": "092192e969520bb287b402fbe77ab070d4267910",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "illuminate/cookie": ">=4.0.9,<4.2",
-                "illuminate/database": ">=4.0.9,<4.2",
-                "illuminate/http": ">=4.0.9,<4.2",
-                "illuminate/session": ">=4.0.9,<4.2",
+                "illuminate/cookie": "~4.0|~5.0",
+                "illuminate/database": "~4.0|~5.0",
+                "illuminate/http": "~4.0|~5.0",
+                "illuminate/session": "~4.0|~5.0",
                 "ircmaxell/password-compat": "1.0.*",
                 "mockery/mockery": "0.9.*"
             },
@@ -1991,7 +1991,7 @@
                     "2": "master"
                 },
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.2.x-dev"
                 }
             },
             "autoload": {
@@ -2044,7 +2044,7 @@
                 "laravel",
                 "security"
             ],
-            "time": "2015-11-26 01:19:39"
+            "time": "2015-04-20 12:47:58"
         },
         {
             "name": "doctrine/instantiator",
@@ -2192,6 +2192,65 @@
                 "test"
             ],
             "time": "2015-05-11 14:41:42"
+        },
+        {
+            "name": "jenssegers/mongodb",
+            "version": "v2.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/laravel-mongodb.git",
+                "reference": "244f40b843e9278d2154ef1554abce3b78ee1370"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/laravel-mongodb/zipball/244f40b843e9278d2154ef1554abce3b78ee1370",
+                "reference": "244f40b843e9278d2154ef1554abce3b78ee1370",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "^5.1",
+                "illuminate/database": "^5.1",
+                "illuminate/events": "^5.1",
+                "illuminate/support": "^5.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9",
+                "orchestra/testbench": "^3.1",
+                "phpunit/phpunit": "^4.0|^5.0",
+                "satooshi/php-coveralls": "^0.6"
+            },
+            "suggest": {
+                "jenssegers/mongodb-sentry": "Add Sentry support to Laravel-MongoDB",
+                "jenssegers/mongodb-session": "Add MongoDB session support to Laravel-MongoDB"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jenssegers\\Mongodb": "src/",
+                    "Jenssegers\\Eloquent": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "A MongoDB based Eloquent model and Query builder for Laravel 4",
+            "homepage": "https://github.com/jenssegers/laravel-mongodb",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "mongo",
+                "mongodb"
+            ],
+            "time": "2016-03-05 09:12:32"
         },
         {
             "name": "mockery/mockery",
@@ -3430,7 +3489,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "cartalyst/sentry": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
