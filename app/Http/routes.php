@@ -11,13 +11,9 @@
 |
 */
 
-// $user = Sentry::findUserById(1);
-// dd($user);
-// $game = new Game;
-// $game->name = "hehehe";
-// $game->save();
-// dd("here");
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::controllers([
+	"game" 	        => "GameController",
+	"character"     => "CharacterController",
+	"auth"	        => "AuthController",
+	'' 					 		=> 'DashboardController',
+	]);

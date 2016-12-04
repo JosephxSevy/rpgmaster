@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c40707dace98d38477ff064fe3ee0634",
-    "content-hash": "3eb0e7da425606221099432013cfa457",
+    "hash": "fd01026cfbc1a9865b71c476d27eb3a5",
+    "content-hash": "e3466078f45097a2c1a607b77f881b05",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2194,6 +2194,53 @@
             "time": "2015-05-11 14:41:42"
         },
         {
+            "name": "illuminate/html",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/html.git",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Html\\": ""
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "abandoned": "laravelcollective/html",
+            "time": "2015-01-01 16:31:18"
+        },
+        {
             "name": "jenssegers/mongodb",
             "version": "v2.3.5",
             "source": {
@@ -2251,6 +2298,51 @@
                 "mongodb"
             ],
             "time": "2016-03-05 09:12:32"
+        },
+        {
+            "name": "jenssegers/mongodb-sentry",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/laravel-mongodb-sentry.git",
+                "reference": "d43d372e8a119eae6ac4646ea330b21bc27e8576"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/laravel-mongodb-sentry/zipball/d43d372e8a119eae6ac4646ea330b21bc27e8576",
+                "reference": "d43d372e8a119eae6ac4646ea330b21bc27e8576",
+                "shasum": ""
+            },
+            "require": {
+                "cartalyst/sentry": "dev-feature/laravel-5",
+                "jenssegers/mongodb": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jenssegers\\Mongodb\\Sentry": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "http://jenssegers.be"
+                }
+            ],
+            "description": "An extension for Laravel-MongoDB that lets you work with Sentry",
+            "keywords": [
+                "Authentication",
+                "laravel",
+                "mongo",
+                "mongodb",
+                "sentry"
+            ],
+            "time": "2015-03-21 19:22:15"
         },
         {
             "name": "mockery/mockery",
@@ -3490,7 +3582,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "cartalyst/sentry": 20
+        "cartalyst/sentry": 20,
+        "jenssegers/mongodb-sentry": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

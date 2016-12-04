@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'lakjshdfioau7rfaskldfiluy'),
+    'key' => env('APP_KEY', '3ooKXuTAefotvQl8qINyhu1ioc2hMaqd'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -146,7 +146,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Jenssegers\Mongodb\MongodbServiceProvider::class,
-        //Cartalyst\Sentry\SentryServiceProvider::class,
+        Cartalyst\Sentry\SentryServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -197,7 +198,9 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Moloquent' => Jenssegers\Mongodb\Eloquent\Model::class,
-        //'Sentry'    => Cartalyst\Sentry\Facades\Laravel\Sentry::class,
+        'Sentry'    => Cartalyst\Sentry\Facades\Laravel\Sentry::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
+        'HTML'      => Illuminate\Html\HtmlFacade::class
 
     ],
 
