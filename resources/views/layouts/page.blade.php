@@ -7,11 +7,10 @@
 
   <body>
     @include("layouts.partials.header")
-    @include("layouts.partials.message-bar")
     <div class="container-fluid page" id="main-container">
 
-
       <div class="content" style="margin-top:66px;">
+        @include("layouts.partials.message-bar")
         @yield("content")
       </div>
 

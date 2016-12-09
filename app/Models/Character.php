@@ -1,8 +1,13 @@
 <?php
 
+  use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+
   class Character extends Moloquent {
+    use SoftDeletes;
+
     protected $connection = 'mongodb';
     protected $collection = 'character';
+    protected $dates = ['created_at','updated_at','deleted_at'];
 
     public static function myCharacters($id = null) {
       if( !empty($id) ) $user = Sentry::findUserById($id);

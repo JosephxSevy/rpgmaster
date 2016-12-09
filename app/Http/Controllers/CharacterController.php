@@ -37,7 +37,7 @@ class CharacterController extends Controller {
       if(!Input::get('race')) $errors["race"] = "Race is Required";
       if(!Input::get('name')) $errors["name"] = "Name is Required";
 
-      if( !empty($errors) ) return Redirect::to( URL::to('character/new') )->withErrors($errors)->withInput();
+      if( !empty($errors) ) return Redirect::to( url('character/new') )->withErrors($errors)->withInput();
 
       $character = Character::generateCharacter([
         "name"  => Input::get("name"),
@@ -70,7 +70,7 @@ class CharacterController extends Controller {
       if(!Input::get('class')) $errors["class"] = "Class is Required";
       if(!Input::get('race')) $errors["race"] = "Race is Required";
 
-      if( !empty($errors) ) return Redirect::to( URL::to('character/edit?character_id=' . Input::get("character_id") ) )->withErrors($errors)->withInput();
+      if( !empty($errors) ) return Redirect::to( url('character/edit?character_id=' . Input::get("character_id") ) )->withErrors($errors)->withInput();
 
       $character = Character::modifyCharacter(
       Input::get("character_id"),

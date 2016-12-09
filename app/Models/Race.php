@@ -1,7 +1,12 @@
 <?php
+  use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+
   class Race extends Moloquent {
+    use SoftDeletes;
+
     protected $connection = 'mongodb';
     protected $collection = 'race';
+    protected $dates = ['created_at','updated_at','deleted_at'];
 
     public static function getList() {
       return Race::all();

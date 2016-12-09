@@ -1,6 +1,9 @@
 <header class="navbar navbar-inverse navbar-fixed-top container-fluid" id="main-header" role="banner">
     {!! HTML::style("css/app.css") !!}
+    {!! HTML::script("js/jquery.min.js") !!}
     {!! HTML::script("js/bootstrap.min.js") !!}
+
+
     <div class="navbar-header">
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
@@ -12,7 +15,7 @@
       <ul class="nav navbar-nav pull-left">
 
           <li> <a href="{!! url('') !!}">Home</a> </li>
-          <li> <a href="{!! url('game') !!}">New Game</a> </li>
+          <li> <a href="{!! url('game') !!}">Games</a> </li>
 
       </ul>
       <ul class="nav navbar-nav pull-right">

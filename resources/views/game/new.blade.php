@@ -4,7 +4,7 @@
 
 	<div class="content">
     	<h1>New Game</h1>
-      	<form action="{!! url('games/new') !!}" method="POST">
+      	<form action="{!! url('game/new') !!}" method="POST">
 					<div class="col-lg-6">
 
 						<div class="form-group">
@@ -16,10 +16,10 @@
 						</div>
 
 						<div class="form-group">
-							<label for="players"></label>
-							<select class="form-control" name="players" required>
+							<label for="users">Users</label>
+							<select class="form-control" id="users">
 								<option value="" disabled selected> Please Select a Player</option>
-								@foreach($user as $user)
+								@foreach($users as $user)
 									<option value="{!! $user["user_id"] !!}">{!! $user->getName() !!}</option>
 								@endforeach
 							</select>
@@ -28,29 +28,32 @@
 							@endif
 						</div>
 
-						<div class="form-group">
-							<label for="gm">Class</label>
-							<select class="form-control" name="gm" required>
-								<option value="" disabled selected> Please Select a GM</option>
-								@foreach($users as $user)
-									<option value="{!! $user["user_id"] !!}">{!! $user->getName() !!}</option>
-								@endforeach
-							</select>
-							@if ($errors->has('gm'))
-									<small class="help-inline text-danger">{{ $errors->first('gm') }}</small>
-							@endif
-						</div>
-
 					</div>
 					<div class="col-lg-6">
-						<h1>Game Players</h1>
-            <ul>
-              
-            </ul>
-					<div>
+						<table class="table table-stripped">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody id="player_list">
+							</tbody>
+						</table>
+					</div>
 
 					{!! csrf_field() !!}
 					<button class="btn btn-success">Save Game</button>
 			</form>
 	</div>
+	<script>
+	$("#users").change( function(){
+		var name = $(this).find(":selected").text();
+		var id	 = $(this).val();
+		$("#player_list").append("<tr><><td>" + name + "<input type='hidden' name='players[]' value='" + id + "'></td><td><span id='remove' class='glyphicon glyphicon-remove'></span></td></tr>");
+	});
+	$(document).on("click", "#remove", function(){
+		$(this).parent().parent().remove();
+	});
+	</script>
 @endsection

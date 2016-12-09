@@ -1,4 +1,3 @@
-
 <footer style="position:absolute; bottom:0;" class="navbar navbar-inverse" id="main-footer">
 
     <ul class="navbar-nav nav pull-right">

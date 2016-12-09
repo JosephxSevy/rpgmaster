@@ -36,8 +36,8 @@
       <div class="col-lg-6">
         <h3>New To {!! Config::get("site.name") !!}</h3>
         <div class="info">
-          <a class = "btn btn-info" href = "{!! URL::to('auth/register') !!}" style="margin-top:2%;margin-bottom:2%;">Create Account</a>
-          <p>Forgot Your Password? Click <a class = "forgot" href = "{!! URL::to('auth/forgot') !!}">Here</a></p>
+          <a class = "btn btn-info" href = "{!! url('auth/register') !!}" style="margin-top:2%;margin-bottom:2%;">Create Account</a>
+          <p>Forgot Your Password? Click <a class = "forgot" href = "{!! url('auth/forgot') !!}">Here</a></p>
         </div>
       </div>
 
