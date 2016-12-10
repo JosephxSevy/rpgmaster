@@ -11,7 +11,6 @@
 |
 */
 
-Route::any("games/{slug}",["uses" => "GameController@game"]);
 
 Route::controllers([
 	"game" 	        => "GameController",

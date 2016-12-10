@@ -3,7 +3,7 @@
   use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
   class Game extends Moloquent {
-
+    use SoftDeletes;
     protected $connection = 'mongodb';
     protected $collection = 'game';
     protected $dates = ['created_at','updated_at','deleted_at'];
@@ -24,9 +24,42 @@
     public function addAction($user_id, $action) {
       $actions = $this->actions;
       $actions[] = [
-        "user_id" => (int)$user_id,
-        "action"  => $action
+        "user_id"      => (int)$user_id,
+        "action"       => $action,
+        "roll_dice"    => false,
+        "allowed_user" => "",
+        "dice"         => "",
       ];
+      $this->actions = $actions;
+      $this->save();
+    }
+
+    public function addActionRoll($user_id, $player, $dice) {
+      $actions = $this->actions;
+      $actions[] = [
+        "user_id"       => (int)$user_id,
+        "action"        => "",
+        "allowed_user"  => (int)$player,
+        "roll_dice"     => true,
+        "dice"          => $dice
+      ];
+      $this->actions = $actions;
+      $this->save();
+    }
+
+    public function replaceActionRoll($user_id, $move, $actionNumber) {
+      $actions = $this->actions;
+      foreach ($actions as $index => $action) {
+        if($index == $actionNumber) {
+          $actions[$index] = [
+            "user_id"      => (int)$user_id,
+            "action"       => $move,
+            "roll_dice"    => false,
+            "allowed_user" => "",
+            "dice"         => ""
+          ];
+        }
+      }
       $this->actions = $actions;
       $this->save();
     }

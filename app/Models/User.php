@@ -26,8 +26,9 @@
       return "$this->first_name $this->last_name";
     }
 
-    public static function getMyName($user_id) {
-      $user = User::where("user_id", "=", (int)$user_id)->first();
+    public static function getMyName($user_id = null) {
+      if( !empty($user_id) ) $user = User::where("user_id", "=", (int)$user_id)->first();
+      else $user = Sentry::getUser();
       return "$user->first_name $user->last_name";
     }
 

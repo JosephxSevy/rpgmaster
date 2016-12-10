@@ -6,6 +6,7 @@ use Input;
 use Redirect;
 use Request;
 
+use Dice;
 use Game;
 use User;
 use Sentry;
@@ -32,13 +33,44 @@ class GameController extends Controller {
       return view("game.play", $data);
     }
     else if( Request::isMethod("POST") ) {
-      if(!Input::get('action')) $errors["class"] = "Action is Required";
 
-      if( !empty($errors) ) return Redirect::to( url('game/play?slug=' . Input::get("slug") ) )->withErrors($errors)->withInput();
-      $game = Game::where("slug", "=", Input::get("slug") )->first();
-      $user = Sentry::getUser();
-      $game->addAction($user->user_id, Input::get("action") );
-      return Redirect::to('game/play?slug=' . Input::get("slug") )->with("success_message", "Move Add succesfully");
+      $data = Input::all();
+      if(isset($data['move'])) {
+        if(!Input::get('action')) $errors["class"] = "Action is Required";
+
+        if( !empty($errors) ) return Redirect::to( url('game/play?slug=' . Input::get("slug") ) )->withErrors($errors)->withInput();
+        $game = Game::where("slug", "=", Input::get("slug") )->first();
+        $user = Sentry::getUser();
+        $game->addAction($user->user_id, Input::get("action") );
+        return Redirect::to('game/play?slug=' . Input::get("slug") )->with("success_message", "Move Add succesfully");
+      }
+      elseif( isset($data['action-roll']) ){
+        $game = Game::where("slug", "=", Input::get("slug") )->first();
+        if(User::isGM($game->game_id)){
+          $dice = Input::get('dice');
+          $user = Sentry::getUser();
+          $pl = Input::get("player");
+          $player = User::where("user_id", "=", (int)$pl)->first();
+          // $string = '<font color="red">'. $player . '</font> "Roll the Dice!" (D'. $dice . ")";
+          // dd($string);
+          $game->addActionRoll($user->user_id, $player->user_id, $dice);
+          return Redirect::to('game/play?slug=' . Input::get("slug") )->with("success_message", "Move Add succesfully"); 
+        }
+      }
+      elseif( isset($data['roll'])){
+        $game = Game::where("slug", "=", Input::get("slug") )->first();
+        $dice = Input::get("dice");
+        $amount = Dice::rollDice((int)$dice);
+        $user = Sentry::getUser();
+        $userName = User::getMyName();
+        $string = $userName . " Rolled " . $amount . "!";
+        $actionNumber = Input::get("action-number");
+        $game->replaceActionRoll($user->user_id, $string, $actionNumber);
+        return Redirect::to('game/play?slug=' . Input::get("slug") )->with("success_message", "Move Add succesfully"); 
+      }
+      else {
+        return Redirect::to('game/play?slug=' . Input::get("slug") )->with("error_message", "It Broke!");
+      }
     }
   }
 
