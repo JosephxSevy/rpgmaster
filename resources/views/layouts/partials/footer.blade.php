@@ -7,7 +7,7 @@
 
     <ul class="navbar-nav nav pull-left">
     <li>
-      <span>&copy; {!! date("Y") . " " . Config::get("site.name") !!}</span>
+      <span>&copy; {!! date("Y") . " " . Config::get("site.title") !!}</span>
     </li>
     </ul>
 </footer>

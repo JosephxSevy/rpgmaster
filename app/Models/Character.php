@@ -15,14 +15,28 @@
 
       $characters = [];
       if ( !empty($user) ) {
+
       foreach($user->characters as $character) {
         $char = Character::where("character_id", "=" ,(int)$character)->first();
-        $char->race = Race::getMyName($char->race);
-        $char->class = Cls::getMyName($char->class);
-        $characters[] = $char;
+        if( !empty($char) ) {
+          $char['race'] = Race::getMyName( $char['race'] );
+          $char['class'] = Cls::getMyName( $char['class'] );
+          $characters[] = $char;
+        }
       }
     }
     return $characters;
+    }
+
+    public function getStats() {
+      $stats = [];
+      foreach($this->stats as $index => $stat) {
+        $stats[] = [
+          "name"  => $index,
+          "value" => $stat
+        ];
+      }
+      return $stats;
     }
 
     public static function generateCharacter( $params ) {
@@ -51,5 +65,15 @@
         throw $e;
       }
     }
+
+    public function getSkills() {
+      $skills = [];
+      foreach($this->skills as $skill) {
+        $skills[] = Skill::where("skill_id", "=", (int)$skill)->first();
+      }
+
+      return array_filter( $skills );
+    }
+
   }
 ?>

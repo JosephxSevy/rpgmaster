@@ -36,13 +36,35 @@ class CharacterController extends Controller {
       if(!Input::get('class')) $errors["class"] = "Class is Required";
       if(!Input::get('race')) $errors["race"] = "Race is Required";
       if(!Input::get('name')) $errors["name"] = "Name is Required";
+      if(!Input::get('race_skill')) $errors["race_skill"] = "Race skill is Required";
+      if(!Input::get('class_skill')) $errors["class_skill"] = "Class skill is Required";
+
+      $stats = [
+        "strength"      => Input::get("strength"),
+        "dexterity"     => Input::get("dexterity"),
+        "charisma"      => Input::get("charisma"),
+        "intelligence"  => Input::get("intelligence"),
+        "wisdom"        => Input::get("wisdom"),
+        "constitution"  => Input::get("constitution")
+      ];
+
+      $total = (int)$stats["strength"] + (int)$stats["dexterity"] + (int)$stats["charisma"] + (int)$stats["intelligence"] + (int)$stats["wisdom"] + (int)$stats["constitution"];
+
+      if( $total != 2 ) $errors["stats"] = "You must only have a net gain of 2 stat points";
+
+
+      $skills = [
+        (int)Input::get("race_skill"),
+        (int)Input::get("class_skill"),
+      ];
 
       if( !empty($errors) ) return Redirect::to( url('character/new') )->withErrors($errors)->withInput();
-
       $character = Character::generateCharacter([
-        "name"  => Input::get("name"),
-        "class" => Input::get("class"),
-        "race"  => Input::get("race")
+        "name"    => Input::get("name"),
+        "class"   => (int)Input::get("class"),
+        "race"    => (int)Input::get("race"),
+        "stats"   => $stats,
+        "skills"  => $skills
       ]);
       $characters = $user->characters;
       $characters[] = $character->character_id;

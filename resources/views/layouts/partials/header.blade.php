@@ -22,7 +22,7 @@
           @if( !Sentry::check() )
             <li> <a href="{!! url('auth/login') !!}">Login</a> </li>
           @else
-            <li> <a href="{!! url('character') !!}">My Character</a> </li>
+            <li> <a href="{!! url('character') !!}">My Characters</a> </li>
             <li> <a href="{!! url('auth/logout') !!}">Logout</a> </li>
           @endif
 
