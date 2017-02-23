@@ -14,7 +14,7 @@
 							<label for="name">Name</label>
 							<input value="{!! Input::old("name") !!}" name="name" class="form-control" placeholder="Character Name" required/>
 							@if ($errors->has('name'))
-									<small class="help-inline text-danger">{{ $errors->first('name') }}</small>
+									<small class="help-inline text-danger">{!! $errors->first('name') !!}</small>
 							@endif
 						</div>
 
@@ -27,7 +27,7 @@
 								@endforeach
 							</select>
 							@if ($errors->has('race'))
-								<small class="help-inline text-danger">{{ $errors->first('race') }}</small>
+								<small class="help-inline text-danger">{!! $errors->first('race') !!}</small>
 							@endif
 						</div>
 
@@ -37,7 +37,7 @@
 								<option value="" disabled selected> Please Select a Race first</option>
 							</select>
 							@if ($errors->has('race_skill'))
-									<small class="help-inline text-danger">{{ $errors->first('race_skill') }}</small>
+									<small class="help-inline text-danger">{!! $errors->first('race_skill') !!}</small>
 							@endif
 						</div>
 
@@ -50,7 +50,7 @@
 								@endforeach
 							</select>
 							@if ($errors->has('class'))
-									<small class="help-inline text-danger">{{ $errors->first('class') }}</small>
+									<small class="help-inline text-danger">{!! $errors->first('class') !!}</small>
 							@endif
 						</div>
 
@@ -60,7 +60,7 @@
 								<option value="" disabled selected> Please Select a Class first</option>
 							</select>
 							@if ($errors->has('class_skill'))
-									<small class="help-inline text-danger">{{ $errors->first('class_skill') }}</small>
+									<small class="help-inline text-danger">{!! $errors->first('class_skill') !!}</small>
 							@endif
 						</div>
 
@@ -103,7 +103,7 @@
 							</tbody>
 						</table>
 						@if ($errors->has('stats'))
-								<small stats="help-inline text-danger">{{ $errors->first('stats') }}</small>
+								<small stats="help-inline text-danger">{!! $errors->first('stats') !!}</small>
 						@endif
 					</div>
 

@@ -11,7 +11,7 @@
 							<label for="name">Name</label>
 							<input name="name" class="form-control" placeholder="Game Name" required/>
 							@if ($errors->has('name'))
-									<small class="help-inline text-danger">{{ $errors->first('name') }}</small>
+									<small class="help-inline text-danger">{!! $errors->first('name') !!}</small>
 							@endif
 						</div>
 
@@ -24,7 +24,7 @@
 								@endforeach
 							</select>
 							@if ($errors->has('players'))
-								<small class="help-inline text-danger">{{ $errors->first('players') }}</small>
+								<small class="help-inline text-danger">{!! $errors->first('players') !!}</small>
 							@endif
 						</div>
 

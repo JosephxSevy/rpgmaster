@@ -67,8 +67,8 @@
 
 					<!-- state -->
 		      <div class="states" id="states">
-		        <div class="form-group {{ $errors->has('state') ? 'has-error': '' }}">
-		          {{ Form::label('state', 'State') }}
+		        <div class="form-group {!! $errors->has('state') ? 'has-error': '' !!}">
+		          {!! Form::label('state', 'State') !!}
 		          @include('layouts.partials.states', array("name" => "state","id" => "state", "class" => "form-control", "required" => true))
 		        </div>
 		      </div>

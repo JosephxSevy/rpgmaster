@@ -16,6 +16,17 @@
       return $games;
     }
 
+    public function getPlayers() {
+      return ( !empty($this->players) ) ? $this->players : [];
+    }
+
+    public function getActions() {
+      return ( !empty($this->actions) ) ? $this->actions : [];
+    }
+
+    public function getDice() {
+      return ( !empty($this->dice) ) ? $this->dice : [];
+    }
 
     public function getSlug() {
       return url( "game/play?slug=$this->slug" );

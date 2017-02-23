@@ -21,11 +21,11 @@
                 @endif
             </div>
 
-            {{-- <div class="form-group col-desktop-12">
+            {!!-- <div class="form-group col-desktop-12">
                 {!! Form::checkbox('remember_me', 'remember_me', Input::has('remember_me')) !!}
                 {!! Form::label('remember_me', 'Remember Me') !!}
                 <br />
-            </div> --}}
+            </div> --!!}
 
           </div>
           <div class="col-lg-12 title">
